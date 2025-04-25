@@ -58,12 +58,15 @@ var (
 	defaultBackOffLimit  = ptr.To(int32(1000))
 
 	defaultPodSecurityContext = &corev1.PodSecurityContext{
-		RunAsNonRoot: ptr.To(true),
+		RunAsNonRoot: ptr.To(false),
+		RunAsUser:    ptr.To(int64(0)),
 		SeccompProfile: &corev1.SeccompProfile{
 			Type: "RuntimeDefault",
 		},
 	}
 	defaultSecurityContext = &corev1.SecurityContext{
+		RunAsNonRoot:             ptr.To(false),
+		RunAsUser:                ptr.To(int64(0)),
 		AllowPrivilegeEscalation: ptr.To(false),
 		Capabilities: &corev1.Capabilities{
 			Drop: []corev1.Capability{

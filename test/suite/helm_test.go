@@ -561,7 +561,8 @@ var _ = Describe("Helm Tests", Ordered, func() {
 			chart                     *v1.HelmChart
 			job                       *batchv1.Job
 			defaultPodSecurityContext = &corev1.PodSecurityContext{
-				RunAsNonRoot: ptr.To(true),
+				RunAsNonRoot: ptr.To(false),
+				RunAsUser:    ptr.To(int64(0)),
 				SeccompProfile: &corev1.SeccompProfile{
 					Type: "RuntimeDefault",
 				},
