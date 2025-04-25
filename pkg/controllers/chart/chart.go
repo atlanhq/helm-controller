@@ -73,7 +73,7 @@ var (
 				"ALL",
 			},
 		},
-		ReadOnlyRootFilesystem: ptr.To(true),
+		ReadOnlyRootFilesystem: ptr.To(false),
 	}
 )
 
