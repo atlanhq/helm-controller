@@ -36,6 +36,6 @@ RUN ./scripts/package
 FROM scratch AS artifacts
 COPY --from=package /src/dist/artifacts /dist/artifacts
 
-FROM alpine:3.21 AS production
+FROM alpine:3.23.2 AS production
 COPY bin/helm-controller /usr/bin/
 CMD ["helm-controller"]
